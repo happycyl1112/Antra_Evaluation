@@ -36,6 +36,20 @@ const View = (() => {
     });
     return tmp;
   };
+  
+  //update tot credit
+  const updateCredit = (arr) => {
+    let tot = 0;
+    arr.forEach((course) => {
+        let credit = `<div class="submit"><p>Total Credit: ${tot}</p></div>`
+        if (course.selected) {
+            tot += course.credit;
+            credit = `<div class="submit"><p>Total Credit: ${tot}</p></div>`
+        }
+    })
+    return tot;
+  }
+
 
   return {
     domstr,
