@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
-    <script async src="./index.css"></script>  
+    <script type="module" src="new_index.js"></script>  
 </head>
 <body>
     <h1 class="title">Class Selection Page</h1>
     <div class="main">
         <div class="column"> 
-            <table id="courseAvailable">
-                <th scope="row">Selected Course</th>
-                <tr>
-                    <td>
+            <table class="courseContainer" id="courseAvailable">
+                <th scope="row">Available Courses</th>
+                <tr class="course_info">
+                    <td class="list_course">
                         <p>
                             Course Name
                         </p>
@@ -45,10 +45,10 @@
             </table>
         </div>
 
-        <div class="column" >
-            <table id="courseSelected">
-                <th scope="row">Selected Course</th>
-                <tr>
+        <div class="column">
+            <table class="courseContainer" id="courseSelected">
+                <th scope="row">Selected</th>
+                <tr class="available_course">
                     <td>
                         <p>
                             Course Name
@@ -80,10 +80,10 @@
         </div>
     </div>
     
-    <div class="submit">
-        <p>Total Credit</p>
-        <div id="sum-of-credit">0</div>
-        <button>Select</button>
+    <div class="counter">
+        <span>Total Credit</span>
+        <span id="credit">0</span>
+        <button id="submit">Select</button>
     </div>
 </body>
 </html>
