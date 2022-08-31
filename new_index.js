@@ -25,7 +25,7 @@ const View = (() => {
     }
 
     //Once we submit, disable the select button
-    const toggleButton = () => {
+    const disableButton = () => {
         const element = document.querySelector(domstr.submit);
         element.disabled = true;
     }
@@ -58,7 +58,7 @@ const View = (() => {
         return `${credit}`
     }
 
-    return {domstr, render, click, toggleButton, createTmp, curCredit}
+    return {domstr, render, click, disableButton, createTmp, curCredit}
 
 })();
 
@@ -81,7 +81,7 @@ const Model = ((api, view) => {
             const tmp = view.createTmp(this.#courseState, 'Available Courses'); //update the course listing by call view function
             const element = document.querySelector(view.domstr.available);
             view.render(element, tmp);
-            //view.toggleButton();
+            //view.disableButton();
         }
 
         get clickState() {
@@ -120,7 +120,7 @@ const Model = ((api, view) => {
             const tmp = view.createTmp(this.#submitState, "Selected courses");
             const element = document.querySelector(view.domstr.selected);
             view.render(element, tmp);
-            //view.toggleButton();
+            //view.disableButton();
         }
 
     }
@@ -191,7 +191,7 @@ const Controller = ((model, view) => {
                         return !state.clickState.includes(course.courseId)
                     });
 
-                    view.toggleButton();
+                    view.diasbleButton();
                 }
 
             })
