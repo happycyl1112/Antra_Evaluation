@@ -9,21 +9,8 @@ export const Api = (() => {
     const getCourseList = () =>
       fetch([baseUrl, resourcePath].join('/')).then((response) => response.json());
 
-    const initCourseList = () => {
-      let myCourses = [];
-      getCourseList().then((courses) => {
-          console.log(courses);
-          courses.forEach((course)=>{
-            console.log(course);
-            course.selected = false;
-            myCourses.push(course);
-          })
-      return(myCourses);
-    })
-  };
   
     return {
         getCourseList,
-        initCourseList
     };
   })();
